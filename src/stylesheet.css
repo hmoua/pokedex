@@ -83,8 +83,8 @@ button, input {
 	font-size: 2em;
 }
 
-/* Defines class called data -- used for wrapping sections w/ retrieved Pokemon data */
-.data {
+/* Wrapper for sections w/ retrieved Pokemon data */
+#data {
 	display: flex;
 	flex-flow: row wrap;
 	font-family: "VT323";
@@ -92,29 +92,25 @@ button, input {
 	margin: 0 4% 3%;
 }
 
-.data article {
+#data article {
 	padding-bottom: 2%;
 }
 
-.data h3 {
+#data h3 {
 	font: 1.2em "Press Start 2P";
 	padding-bottom: 5%;
 }
 
-.data img {
+#data img {
 	width: 25%;
 }
 
-.data li {
+#data li {
 	font-size: 1.5em;
 	text-transform: capitalize;
 }
 
-.data ol {
-	list-style: inside decimal;
-}
-
-.data section {
+#data section {
 	background-color: white;
 	background-image:
 		linear-gradient(to right, darkred 20px, transparent 20px),
@@ -125,6 +121,14 @@ button, input {
 	padding: 1% 25px 1.5%;
 	margin: 0 1% 2%;
 	min-width: 11em;
+}
+
+#ability ul {
+	list-style: inside disc;
+}
+
+#evolution ol {
+	list-style: inside decimal;
 }
 
 h1 {
@@ -174,12 +178,12 @@ label {
 	text-transform: capitalize;
 }
 
-/* Defines class called sprites -- used for wrapping sections w/ Pokemon sprite images */
-.sprites {
+/* Wrapper for sections w/ Pokemon sprite images */
+#sprites {
 	margin: 0 5%;
 }
 
-.sprites article {
+#sprites article {
     background-color: white;
 	background-image:
 		linear-gradient(to right, darkred 20px, transparent 20px),
@@ -193,11 +197,11 @@ label {
 	max-width: 60%;
 }
 
-.sprites article img {
+#sprites article img {
 	width: 50%;
 }
 
-.sprites h3 {
+#sprites h3 {
 	font: 1.2em "Press Start 2P";
 	margin: auto;
 	padding: 1.5%;
@@ -233,12 +237,12 @@ label {
 		margin-right: 5%;
 	}
 
-	.sprites article {
+	#sprites article {
 		margin-top: 5%;
 		max-width: 80%;
 	}
 
-	.sprites article img {
+	#sprites article img {
 		width: 50%;
 	}
 }

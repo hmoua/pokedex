@@ -109,13 +109,13 @@ function Pokedex() {
 	// Return statements
 	if (state.loading) return <h1>Loading...</h1>;
 	return (
-		<div className="Pokedex">
+		<div id="Pokedex">
 			<header>
 				<h1>Pok&eacute;dex</h1>
 				<Button randomNumber={randomNumber}/>
 				<Textbox userInput={userInput}/>
 			</header>
-			<div className="sprites section">
+			<div id="sprites">
 				<article>
 					{
 						(state.spriteLabel.length === 0 && state.formLabel.length === 0)
@@ -130,9 +130,9 @@ function Pokedex() {
 				</article>
 			</div>
 
-			<div className="data section">
+			<div id="data">
 				<h2>{state.name}</h2>
-				<section>
+				<section id="height">
 					<h3>Height</h3>
 					{
 						(state.height === 0)
@@ -140,7 +140,7 @@ function Pokedex() {
 						: <ul><li>{state.height} m</li></ul>
 					}
 				</section>
-				<section>
+				<section id="weight">
 					<h3>Weight</h3>
 					{
 						(state.weight === 0)
@@ -148,7 +148,7 @@ function Pokedex() {
 						: <ul><li>{state.weight} lbs.</li></ul>
 					}
 				</section>
-				<section>
+				<section id="type">
 					<h3>Type</h3>
 					<ul>
 						{
@@ -181,12 +181,12 @@ function Pokedex() {
 						}
 					</ul>
 				</section>
-				<section>
+				<section id="ability">
 					<h3>Ability</h3>
 					<ul>
 						{
 							(state.ability.length === 0)
-							? <li>N/A</li>
+							? <li style={{"list-style-type": "none"}}>N/A</li>
 							: Object.keys(state.ability).map(a => {
 									const name = state.ability[a]["ability"]["name"]
 									const url = state.ability[a]["ability"]["url"]
@@ -195,7 +195,7 @@ function Pokedex() {
 						}
 					</ul>
 				</section>
-				<section>
+				<section id="stats">
 					<h3>Stats</h3>
 					<ul>
 					{
@@ -209,7 +209,7 @@ function Pokedex() {
 					}
 					</ul>
 				</section>
-				<section>
+				<section id="evolution">
 					<h3>Evolution</h3>
 						{
 							(state.evolution.length === 0)
