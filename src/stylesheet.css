@@ -1,4 +1,4 @@
-/* Imports local font from "fonts" folder */
+/* Import local font from "fonts" folder */
 @font-face {
     font-family: "Pokemon";
     src: url("./assets/fonts/Pokemon.eot");
@@ -10,8 +10,8 @@
     font-weight: normal;
 }
 
-/* Imports Google fonts */
-@import url('http://fonts.googleapis.com/css?family=VT323|Press+Start+2P');
+/* Import font from Google */
+@import url("https://fonts.googleapis.com/css?family=VT323|Press+Start+2P");
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -83,7 +83,7 @@ button, input {
 	font-size: 2em;
 }
 
-/* Defines class called data -- used for wrapping sections w/ retrieved Pokémon data */
+/* Defines class called data -- used for wrapping sections w/ retrieved Pokemon data */
 .data {
 	display: flex;
 	flex-flow: row wrap;
@@ -174,7 +174,7 @@ label {
 	text-transform: capitalize;
 }
 
-/* Defines class called sprites -- used for wrapping sections w/ Pokémon sprite images */
+/* Defines class called sprites -- used for wrapping sections w/ Pokemon sprite images */
 .sprites {
 	margin: 0 5%;
 }
