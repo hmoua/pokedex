@@ -1,0 +1,7 @@
+{
+  "short_name": "Pokedex",
+  "name": "Pokédex App",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#B1DCEA"
+}
