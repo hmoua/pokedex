@@ -131,7 +131,6 @@ function Pokedex() {
 							</div>
 					}
 			</div>
-
 			<div id="data">
 				<h2>{state.name}</h2>
 				<section id="height">

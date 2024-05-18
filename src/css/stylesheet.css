@@ -15,6 +15,8 @@
 
 html {
 	background: #B1DCEA url("../assets/images/tile.png");
+  height: 100%;
+	width: 100%;
 }
 
 header {
@@ -66,13 +68,13 @@ input {
 	flex-flow: row wrap;
 	font-family: "VT323";
 	justify-content: center;
-	margin: 0 4% 3%;
+	margin: 0 4%;
 }
 
 	#data h2 {
 		font-family: "Press Start 2P";
 		font-size: 2em;
-		margin-bottom: 1.5%;
+		margin-bottom: 1%;
 		text-align: center;
 		text-transform: capitalize;
 		width: 100%;
@@ -91,9 +93,9 @@ input {
 		border: 3px solid black;
 		border-radius: 10px;
 		flex-basis: 26.333333%;
-		margin: 0 1% 2%;
+		margin: 0 1% 1.5%;
 		min-width: 11em;
-		padding: 1% 25px 1.5%;
+		padding: 1% 1.65em 1.5%;
 	}
 
 	#data img {
@@ -199,7 +201,7 @@ ol {
 
 	#sprites {
 		margin-top: 5%;
-		max-width: 80%;
+		max-width: 50%;
 	}
 
 		#sprites label {
