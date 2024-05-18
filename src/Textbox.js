@@ -18,9 +18,9 @@ export default function Textbox({ userInput }) {
   }
 
   return (
-    <div className="search">
+    <div id="search">
       <input type="text" id="textbox" placeholder="Search for a Pok&eacute;mon" value={ currentText.text } onChange={ getText }/>
       <button id="submitBtn" onClick={ userInput }>Submit</button>
     </div>
-  )
+  );
 }

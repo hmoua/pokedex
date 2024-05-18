@@ -1,8 +1,8 @@
 import React, {useReducer} from "react";
+import {Slide} from "react-slideshow-image";
 import axios from "axios";
 import Button from "./Button";
 import Textbox from "./Textbox";
-import "./stylesheet.css";
 import Type_Bug from "./assets/images/Type_Bug.gif";
 import Type_Dark from "./assets/images/Type_Dark.gif";
 import Type_Dragon from "./assets/images/Type_Dragon.gif";
@@ -21,6 +21,9 @@ import Type_Psychic from "./assets/images/Type_Psychic.gif";
 import Type_Rock from "./assets/images/Type_Rock.gif";
 import Type_Steel from "./assets/images/Type_Steel.gif";
 import Type_Water from "./assets/images/Type_Water.gif";
+import "react-slideshow-image/dist/styles.css";
+import "./css/reset.css";
+import "./css/stylesheet.css";
 
 function Pokedex() {
 	const initialState = {
@@ -32,9 +35,7 @@ function Pokedex() {
 		height: 0,
 		weight: 0,
 		sprite: [],
-		spriteLabel: [],
 		form: [],
-		formLabel: [],
 		type: [],
 		ability: [],
 		stat: [],
@@ -49,10 +50,8 @@ function Pokedex() {
 				name: action.pokemonPayload.data.name,
 				height: action.pokemonPayload.data.height,
 				weight: action.pokemonPayload.data.weight,
-				sprite: [],
-				spriteLabel: action.pokemonPayload.data.sprites,
+				sprite: action.pokemonPayload.data.sprites,
 				form: [],
-				formLabel: [],
 				type: action.pokemonPayload.data.types,
 				ability: action.pokemonPayload.data.abilities,
 				stat: action.pokemonPayload.data.stats,
@@ -67,13 +66,13 @@ function Pokedex() {
 				name: "",
 				height: 0,
 				weight: 0,
+				sprite: [],
+				form: [],
 				type: [],
 				ability: [],
 				stat: [],
-				sprite: [],
 				evolution: [],
-				spriteLabel: [],
-				formLabel: []
+				sprite: []
 			}
 		}
 	};
@@ -81,29 +80,29 @@ function Pokedex() {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	function getUrl() {
-		state.pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${state.pokemon}`
-		state.speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${state.pokemon}`
+		state.pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${state.pokemon}`;
+		state.speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${state.pokemon}`;
 		axios.all([axios.get(state.pokemonUrl), axios.get(state.speciesUrl)])
 		.then(
 			axios.spread((pokemonRes, speciesRes) => {
 				axios.get(speciesRes.data.evolution_chain.url).then((evolutionRes) => {
-					dispatch({type: "AXIOS_SUCCESS", pokemonPayload: pokemonRes, evolutionPayload: evolutionRes})
+					dispatch({type: "AXIOS_SUCCESS", pokemonPayload: pokemonRes, evolutionPayload: evolutionRes});
 				})
 			})
 		)
 		.catch(() => {
-			dispatch({type: "AXIOS_ERROR"})
-		})
+			dispatch({type: "AXIOS_ERROR"});
+		});
 	}
 
 	function randomNumber() {
-		state.pokemon = Math.floor(Math.random() * 898) + 1
-		getUrl()
+		state.pokemon = Math.floor(Math.random() * 898) + 1;
+		getUrl();
 	}
 
 	function userInput() {
-		state.pokemon = document.getElementById("textbox").value.trim().toLowerCase()
-		getUrl()
+		state.pokemon = document.getElementById("textbox").value.trim().toLowerCase();
+		getUrl();
 	}
 
 	// Return statements
@@ -116,18 +115,21 @@ function Pokedex() {
 				<Textbox userInput={userInput}/>
 			</header>
 			<div id="sprites">
-				<article>
 					{
-						(state.spriteLabel.length === 0 && state.formLabel.length === 0)
+						(state.sprite.length === 0 && state.form.length === 0)
 						? <h3>Pok&eacute;mon</h3>
-						: Object.entries(state.spriteLabel).map(([s, i]) => {
-							if (typeof(i) === "string") return <label key={ s }>{s.replaceAll("_", " ")}<img src={i} alt=""/></label>
-						})
+						: <div className="slide-container">
+								<Slide duration={1700} transitionDuration={920}>
+									{Object.entries(state.sprite)
+										.filter(([_, v1]) => typeof v1 === "string")
+										.map(([k, v2]) => {
+											const label = k.replaceAll("_", " ");
+											return (<label key={k}>{label}<img src={v2} alt={label}/></label>);
+										})
+									}
+								</Slide>
+							</div>
 					}
-					{state.formLabel.map((f, i) => {
-						return <label key={f}>{f}<img src={state.form[i]} alt=""/></label>;
-					})}
-				</article>
 			</div>
 
 			<div id="data">
@@ -186,7 +188,7 @@ function Pokedex() {
 					<ul>
 						{
 							(state.ability.length === 0)
-							? <li style={{"list-style-type": "none"}}>N/A</li>
+							? <li style={{"listStyleType": "none"}}>N/A</li>
 							: Object.keys(state.ability).map(a => {
 									const name = state.ability[a]["ability"]["name"]
 									const url = state.ability[a]["ability"]["url"]
@@ -233,6 +235,6 @@ function Pokedex() {
 				</section>
 			</div>
 		</div>
-	)
+	);
 }
 export default Pokedex;

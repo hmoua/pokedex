@@ -1,0 +1,214 @@
+/* Import fonts from Google */
+@import url("https://fonts.googleapis.com/css?family=VT323|Press+Start+2P");
+
+/* Import local font from "fonts" folder */
+@font-face {
+    font-family: "Pokemon";
+    src: url("../assets/fonts/Pokemon.eot");
+    src: url("../assets/fonts/Pokemon.eot?#iefix") format("embedded-opentype"),
+        url("../assets/fonts/Pokemon.woff2") format("woff2"), 
+        url("../assets/fonts/Pokemon.woff") format("woff"),
+        url("../assets/fonts/Pokemon.ttf") format("truetype");
+	font-style: normal;
+    font-weight: normal;
+}
+
+html {
+	background: #B1DCEA url("../assets/images/tile.png");
+}
+
+header {
+	align-items: center;
+	background-image: linear-gradient(brown, firebrick, darkred);
+	border: 3px solid black;
+	display: flex;
+	flex-direction: row;
+	height: 4em;
+}
+
+h1 {
+	color: #FFCC01;
+	flex: 5%;
+	font: 2.75em "Pokemon";
+	margin-left: 0.2em;
+	margin-top: -0.4em;
+	-webkit-text-stroke-width: 2.7px;
+	-webkit-text-stroke-color: #235AAC;
+}
+
+button {
+	background: #235AAC;
+	margin: 0 0.3em;
+}
+
+button, input {
+	border: 2px solid black;
+	font-family: "VT323";
+	font-size: 2em;
+}
+
+button:active {
+	color: #235AAC;
+}
+
+button:hover {
+	background: #29AAFD;
+	cursor: pointer;
+}
+
+input {
+	margin-left: 1em;
+}
+
+/* Wrapper for sections w/ retrieved Pokemon data */
+#data {
+	display: flex;
+	flex-flow: row wrap;
+	font-family: "VT323";
+	justify-content: center;
+	margin: 0 4% 3%;
+}
+
+	#data h2 {
+		font-family: "Press Start 2P";
+		font-size: 2em;
+		margin-bottom: 1.5%;
+		text-align: center;
+		text-transform: capitalize;
+		width: 100%;
+	}
+
+	#data h3 {
+		font: 1.2em "Press Start 2P";
+		padding-bottom: 5%;
+	}
+
+	#data section {
+		background-color: white;
+		background-image:
+			linear-gradient(to right, darkred 20px, transparent 20px),
+			linear-gradient(to left, darkred 20px, transparent 20px);
+		border: 3px solid black;
+		border-radius: 10px;
+		flex-basis: 26.333333%;
+		margin: 0 1% 2%;
+		min-width: 11em;
+		padding: 1% 25px 1.5%;
+	}
+
+	#data img {
+		width: 20%;
+	}
+
+	#data li {
+		font-size: 1.5em;
+		text-transform: capitalize;
+	}
+
+#ability ul {
+	list-style: inside disc;
+}
+
+ol {
+	list-style: inside decimal;
+}
+
+/* Wrapper for sections w/ Pokemon sprite images */
+#sprites {
+	background-color: white;
+	background-image:
+		linear-gradient(to right, darkred 20px, transparent 20px),
+		linear-gradient(to left, darkred 20px, transparent 20px);
+	border: 3px solid black;
+	border-radius: 10px;
+	margin: 3% auto 1.5%;
+	max-width: 30%;
+	text-align: center;
+}
+
+	#sprites h3 {
+		font: 1.2em "Press Start 2P";
+		margin: auto;
+		padding: 1.5%;
+	}
+
+	#sprites label {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		font: 1.5em "VT323";
+		padding-top: 1%;
+		text-transform: capitalize;
+	}
+
+/* Additional slideshow styling */
+.slide-container img {
+	width: 30%;
+}
+
+.nav.default-nav {
+	background-color: darkred;
+	height: 100%;
+	margin: 0;
+	width: 25px;
+}
+
+	.nav.default-nav:first-of-type {
+		border-radius: 7px 0 0 7px;
+	}
+
+	.nav.default-nav:last-of-type {
+		border-radius: 0 7px 7px 0;
+	}
+
+	.nav.default-nav:focus {
+		background-color: crimson;
+	}
+
+	.nav.default-nav:hover {
+		background-color: red;
+	}
+
+	.nav.default-nav:active {
+		background-color: orangered;
+	}
+
+/* Media query -- modifies some elements when the screen's width <= 55em */
+@media screen and (max-width:55em) {
+	header {
+		align-items: flex-end;
+		flex-direction: column;
+		height: 14em;
+	}
+
+	h1 {
+		flex-basis: 100%;
+		font-size: 3.5em;
+		margin: -5% auto 0;
+		-webkit-text-stroke-width: 3px;
+	}
+
+	button {
+		margin-bottom: 10%;
+		margin-top: -10em;
+	}
+
+	#data h2 {
+		margin: 2% 0;
+	}
+
+	#sprites {
+		margin-top: 5%;
+		max-width: 80%;
+	}
+
+		#sprites label {
+			flex-basis: 45%;
+			font-size: 1.1em;
+			margin-right: 5%;
+		}
+
+	.slide-container img {
+		width: 50%;
+	}
+}
